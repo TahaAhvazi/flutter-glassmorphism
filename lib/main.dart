@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'dart:ui';
 
+import 'package:glassmorphism_app/animations/animation.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -26,8 +28,6 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
         child: Stack(
           children: [
             Image.asset(
@@ -66,15 +66,17 @@ class MyHomePageState extends State<MyHomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 150,
-                    width: 150,
-                    child: Image.asset(
-                      "assets/images/teslalogo.png",
-                      fit: BoxFit.cover,
-                      height: double.infinity,
-                      width: double.infinity,
-                      scale: 1,
+                  MyAnimation(
+                    child: SizedBox(
+                      height: 150,
+                      width: 150,
+                      child: Image.asset(
+                        "assets/images/teslalogo.png",
+                        fit: BoxFit.cover,
+                        height: double.infinity,
+                        width: double.infinity,
+                        scale: 1,
+                      ),
                     ),
                   ),
                   Padding(
